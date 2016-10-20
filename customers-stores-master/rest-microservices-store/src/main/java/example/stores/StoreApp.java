@@ -41,9 +41,9 @@ import java.util.List;
  * 
  * @author Oliver Gierke
  */
-@EnableAutoConfiguration
+@EnableAutoConfiguration // 表示启动Config Cloud 功能，动态获取配置资源从Config Server
 @ComponentScan
-@EnableDiscoveryClient
+@EnableDiscoveryClient // 表示启动Eureka Cloud 功能，服务发现，并实时心跳上报到Eureka Server
 public class StoreApp extends RepositoryRestConfigurerAdapter {
 
     @Override
