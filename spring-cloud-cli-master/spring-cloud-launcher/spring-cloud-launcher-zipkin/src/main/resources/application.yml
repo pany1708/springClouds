@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: zipkin
+
+server:
+  port: 9411
+
+info:
+  artifactId: "@project.artifactId@"
+  description: "@project.description@"
+  version: "@project.version@"
