@@ -1,0 +1,34 @@
+server:
+  port: 8071
+
+spring:
+  application:
+    name: service-b
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
+      host: 127.0.0.1
+      port: 8500
+  sleuth:
+      sampler:
+        percentage: 1
+---
+server:
+  port: 8071
+
+spring:
+  profiles: docker
+  application:
+    name: service-b
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
+      host: consul
+      port: 8500
+  sleuth:
+      sampler:
+        percentage: 1
+  zipkin:
+    base-url: http://zipkin:9411/

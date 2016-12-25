@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: service-a
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
+      host: 127.0.0.1
+      port: 8500
+      config:
+        enabled: true
+        watch:
+          enabled: true
+  sleuth:
+    sampler:
+      percentage: 1
+---
+server:
+  port: 8080
+
+spring:
+  profiles: docker
+  application:
+    name: service-a
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
+      host: consul
+      port: 8500
+      config:
+        enabled: true
+        watch:
+          enabled: true
+  sleuth:
+    sampler:
+      percentage: 1
+  zipkin:
+    base-url: http://zipkin:9411/
