@@ -8,3 +8,4 @@ generatorConfig.xml
 doc
 build
 *.class
+.gradle
